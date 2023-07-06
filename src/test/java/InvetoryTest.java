@@ -76,6 +76,19 @@ public class InvetoryTest extends BaseTest{
 
     }
 
+    @Test
+    public void BuyProductsWithOutData()
+    {
+        inventoryPage.clickLight();
+        inventoryPage.clickBackpack();
+        inventoryPage.clickCart();
+        cartPage.clickCheckout();
+        checkoutStepOnePage.setForm("","","");
+
+        Assert.assertEquals(checkoutStepOnePage.getError(),"Error: First Name is required");
+
+    }
+
     @AfterMethod
     public void after()
     {
